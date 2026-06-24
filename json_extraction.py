@@ -23,6 +23,18 @@ meeting_note = "\n".join(lines)
 prompt = f"""
 Extract every action item from the meeting note below.
 
+Think step by step to ensure you don't miss any action items.
+
+Now extract from this meeting note:
+
+Return a JSON object with a single key "items", which is a list of objects.
+"name": the full name of the person responsible for the action item
+"date": the date mentioned in the action item, or null if none
+"action": a brief description of what they need to do
+
+if there are multiple people quoted in the same action item, return them as separate objects in the list.
+
+
 <meeting_note>
 {meeting_note}
 </meeting_note>
