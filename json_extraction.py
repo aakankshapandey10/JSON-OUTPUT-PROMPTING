@@ -25,6 +25,20 @@ Extract every action item from the meeting note below.
 
 Think step by step to ensure you don't miss any action items.
 
+Here are examples of correct extractions:
+
+Example 1:
+Meeting note: "Alice will send the report by Friday."
+Output: {{"items": [{{"name": "Alice", "date": "Friday", "action": "send the report"}}]}}
+
+Example 2:
+Meeting note: "Bob and Carol need to review the contract. No deadline given."
+Output: {{"items": [{{"name": "Bob", "date": null, "action": "review the contract"}}, {{"name": "Carol", "date": null, "action": "review the contract"}}]}}
+
+Example 3:
+Meeting note: "The team agreed David will set up the server by June 30."
+Output: {{"items": [{{"name": "David", "date": "June 30", "action": "set up the server"}}]}}
+
 Now extract from this meeting note:
 
 Return a JSON object with a single key "items", which is a list of objects.
